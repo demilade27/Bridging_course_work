@@ -1,0 +1,77 @@
+{% extends 'blog/base.html' %} {% block content %}
+<div class="clearfix"></div>
+<!-- PAGE TITLE -->
+<div class="django-page-title">
+    <h1><span>Demilade Popoola</span></h1>
+    <p class="django-page-subtitle">Computer Scientist</p>
+</div>
+<!-- ABOUT ME -->
+<div class="row">
+    <div class="col-12 col-lg-8 order-2 order-lg-1">
+        <p><span class="lead"><em>My name is Demilade Popoola, I am from Ekiti state nigeria and i live in lagos and i am currently 19. I went to college at Caleb international college and graduated at the top 20%. I am currently at the university of birmingham studying computer science. My hobbies are proramming, Video gaming and learning. My interest are politics, bussiness, football and technological advancements.     </em></span></p>
+    </div>
+    <div class="col-12 col-lg-4 order-1 order-lg-2 mb-5 mb-lg-0">
+        <img src="{{'/static/img/IMG_2175.jpeg'}}" alt="Jane Doe" class="img-fluid mx-auto d-block django-img-shadow" />
+    </div>
+</div>
+<!-- DIVIDER -->
+<hr />
+<!-- TABS -->
+<h2>WHAT CAN I DO</h2>
+<!-- TABS NAVIGATION -->
+<ul class="nav nav-tabs">
+    <!-- TAB 1 -->
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#mp-tab-fashion" aria-expanded="true">Programming</a>
+    </li>
+    <!-- TAB 2 -->
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#mp-tab-wildlife" aria-expanded="false">Machine Learning </a>
+    </li>
+</ul>
+<!-- TABS CONTENT -->
+<div class="django-tabs-content tab-content">
+    <!-- TAB 1 -->
+    <div class="tab-pane fade active show" id="mp-tab-fashion" role="button" aria-expanded="true">
+    <p>i am currently very experienced in many programimng langages which included Java, Python, Haskell, Agda, Html and Css. </p>
+    </div>
+    <!-- TAB 2 -->
+    <div class="tab-pane fade " id="mp-tab-wildlife" role="button" aria-expanded="false">
+    <p></p>
+    </div>
+
+</div>
+<!-- DIVIDER -->
+<hr />
+
+<hr />
+<h2>CONTACT ME</h2>
+<p>If you are intrested in my services drop your details below and i will get back to you as soon as possible.</p>
+<!-- CONTACT FORM -->
+<form id="ajax-form" action="mailer.php" method="post">
+<div class="row">
+    <div class="col-12 col-lg-6">
+        <p>
+            <label>Your Name</label><br />
+            <input type="text" name="sendername" id="sendername" class="form-control" required="required" maxlength="50" />
+        </p>
+        <p>
+            <label>Your Email</label><br />
+            <input type="email" name="senderemail" id="senderemail" class="form-control" required="required" maxlength="50" />
+        </p>
+        <p>
+            <label>Phone Number</label><br />
+            <input type="text" name="senderphone" id="senderphone" class="form-control" maxlength="50" />
+        </p>
+    </div>
+    <div class="col-12 col-lg-6">
+        <p>
+            <label>Your Message</label><br />
+            <textarea name="sendermessage" id="sendermessage" required="required" class="form-control form-fixed-height"></textarea>
+        </p>
+        <button id="sendbutton" type="submit" class="btn btn-lg w-100">Send Message</button>
+    </div>
+</div>
+</form>
+<div id="form-messages"></div>
+{% endblock %}

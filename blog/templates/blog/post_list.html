@@ -1,0 +1,78 @@
+{% extends 'blog/base.html' %} {% block content %}
+<div class="django-page-title">
+    <h1><span>Blogs</span></h1>
+    <div class="django-page-title-meta">
+                
+    </div>
+</div>
+{% if posts %}
+{% for post in posts %}
+<div class="card card-horizontal">
+  <div class="card-body">
+    <div class="card-horizontal-left">
+      <h3 class="card-title">
+        <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
+      </h3>
+      <div class="card-excerpt">
+        <p>{{ post.text|linebreaksbr|truncatechars:250 }}</p>
+      </div>
+      <div class="card-horizontal-meta">
+        <div class="django-author-meta">
+          By <a class="author-meta" href="{% url 'post_detail' pk=post.pk %}">{{post.author}}</a>
+        </div>
+        <div class="django-date-meta">
+          <a href="{% url 'post_detail' pk=post.pk %}"> {{ post.published_date }} </a>
+        </div>
+        <!-- <div class="django-reading-meta">3 min read</div> -->
+      </div>
+    </div>
+    <div
+      class="card-horizontal-right"
+      data-img="media/{{post.image}}"
+    >
+      <a class="card-featured-img" href="{% url 'post_detail' pk=post.pk %}"></a>
+    </div>
+  </div>
+</div>
+
+{% endfor %}
+
+<div class="django-pager">
+  <ul class="pagination flex-wrap">
+    {% if posts.has_previous %}
+    <li class="page-item">
+      <a class="page-link" href="?page={{ posts.previous_page_number }}"
+        ><i class="fa fa-chevron-left"></i
+      ></a>
+    </li>
+    {% else %}
+    <li class="disabled page-item"><span  class="fa fa-chevron-left"></span></li>
+    {% endif %} {% for i in posts.paginator.page_range %}
+
+    {% if posts.number == i %}
+
+    <li class='page-item active'><a class='page-link' href='#'>  {{ i }}</a></li>
+    {% else %}
+
+    <li class="page-item "><a class='page-link' href="?page={{ i }}">{{ i }}</a></li>
+    {% endif %} {% endfor %} {% if posts.has_next %}
+
+    <li class="page-item">
+      <a class="page-link" href="?page={{ posts.next_page_number }}"
+        ><i class="fa fa-chevron-right"></i
+      ></a>
+    </li>
+    {% else %}
+    <li class="disabled page-item"><span  class="fa fa-chevron-right"></span></li>
+</li>
+    {% endif %}     
+  </ul>
+</div>
+<div class="clearfix"></div>
+{% else %}
+<div class="django-page-title">
+    <h1><span>No Post Available</span></h1>
+    <p class="django-page-subtitle">Please Post a blog</p>
+</div>
+{% endif %}
+{% endblock %}

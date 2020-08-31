@@ -1,0 +1,134 @@
+{% extends 'blog/base.html' %} {% block content %}
+<div class="clearfix"></div>
+
+<div class="django-page-title">
+    <h1><span>resume</span></h1>
+    <div class="django-page-title-meta">
+        <div class="django-author-meta">
+        resume
+        </div>
+
+       
+        {% if user.is_authenticated %}
+        <div class="django-cat-meta">
+           <a href=""> Edit  &nbsp;<i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+        </div>
+        {% endif %}
+    </div>
+    
+   
+</div>
+
+{% if resume %}
+    <article class="resume-wrapper text-center position-relative">
+        <div class="resume-wrapper-inner mx-auto text-left bg-white shadow-lg">
+            <header class="resume-header pt-4 pt-md-0">
+                <div class="media flex-column flex-md-row">
+                    <img class="mr-3 img-fluid  mx-auto" src="{{'/static/img/300x300.png'}}" alt="">
+                    <div class="media-body p-4 d-flex flex-column flex-md-row mx-auto mx-lg-0">
+                        <div class="primary-info">
+                            <h1 class="name mt-0 mb-1">Demilade</h1>
+                            <div class="title mb-3">Computer SCience</div>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><a href="#"><i class="fa fa-envelope" ></i> &nbsp; Steve.Doe@website.com</a></li>
+                                <li><a href="#"><i class="fa fa-phone" > &nbsp; </i>0123 456 78900</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="resume-body p-5">
+                <section class="resume-section summary-section mb-5">
+                    <h2 class="resume-section-title font-weight-bold pb-3 mb-3">PERSONAL PROFILE</h2>
+                    <div class="resume-section-content">
+                        <p class="mb-0">Summarise your career here. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. You can download this free resume/CV template here. Aenean commodo ligula eget dolor aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget.</p>
+                    </div>
+                </section>
+                <div class="row">
+                    <div class="col-lg-9">
+                        <section class="resume-section education-section mb-5">
+                            <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Education</h2>
+                            <div class="resume-section-content">
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">
+                                        <div class="resume-degree font-weight-bold">MSc in Computer Science</div>
+                                        <div class="resume-degree-org">University College London</div>
+                                        <div class="resume-degree-time">2010 - 2011</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="col-lg-9">
+                        <section class="resume-section experience-section mb-5">
+                            <h2 class="resume-section-title font-weight-bold pb-3 mb-3 text-uppercase ">Employment And Work Experience</h2>
+                            <div class="resume-section-content">
+                                <div class="resume-timeline position-relative">
+                                    <article class="resume-timeline-item position-relative"> 
+                                        <div class="resume-timeline-item-header mb-2">
+                                            <div class="d-flex flex-column flex-md-row">
+                                                <h3 class="resume-position-title font-weight-bold mb-1">Web Developer <small class="text-muted">(Intern)</small></h3>
+                                                <div class="resume-company-name ml-auto">Amazon</div>
+                                            </div>
+                                            <div class="resume-position-time">2011 - 2012</div>
+                                        </div>
+                                        <div class="resume-timeline-item-desc">
+                                            <p>Role description goes here ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum.</p>
+                                        </div>
+                                    </article> 
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-lg-9">
+                        <section class="resume-section experience-section mb-5">
+                            <h2 class="resume-section-title font-weight-bold pb-3 mb-3 text-uppercase">Achievements</h2>
+                            <div class="resume-section-content">
+                                <div class="resume-timeline position-relative">
+                                    <article class="resume-timeline-item position-relative"> 
+                                        <p>Praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+                                        <ul>
+                                            <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+                                            <li>At vero eos et accusamus et iusto odio dignissimos.</li>
+                                            <li>Blanditiis praesentium voluptatum deleniti atque corrupti.</li>
+                                            <li>Maecenas tempus tellus eget.</li>
+                                        </ul>
+                                    </article> 
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-lg-9">
+                        <section class="resume-section experience-section mb-5">
+                            <h2 class="resume-section-title font-weight-bold pb-3 mb-3 text-uppercase">Interests</h2>
+                            <div class="resume-section-content">
+                                <div class="resume-timeline position-relative">
+                                    <article class="resume-timeline-item position-relative"> 
+                                        <p>Praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+                                        <ul>
+                                            <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+                                            <li>At vero eos et accusamus et iusto odio dignissimos.</li>
+                                            <li>Blanditiis praesentium voluptatum deleniti atque corrupti.</li>
+                                            <li>Maecenas tempus tellus eget.</li>
+                                        </ul>
+                                    </article> 
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </article>  
+{%else%}
+    <div class="django-page-title">
+        <h1><span>No Resume Available</span></h1>
+        <p class="django-page-subtitle">Please Post a Resume</p>
+         {% if user.is_authenticated %}
+            <a href="{%url 'add_resume'  %}"> Add Resume  &nbsp;<i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+         {% endif %}
+    </div>
+{% endif %}
+{% endblock%}

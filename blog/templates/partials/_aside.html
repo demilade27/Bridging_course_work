@@ -1,0 +1,43 @@
+<div id="django-sidebar">
+    <div id="django-sidebar-wrapper" class="d-flex align-items-start flex-column h-100 w-100">
+        <!-- LOGO -->
+        <div id="django-logo-cell" class="w-100">
+            <a class="django-logo-link" href="/">
+                <img src="{{'/static/img/logo.png'}}" class="django-logo" alt="demi-logo" />
+            </a>
+        </div>
+        <!-- MENU CONTAINER -->
+        <div id="django-sidebar-cell" class="w-100">
+            <!-- MOBILE MENU BUTTON -->
+            <div id="django-menu-toggle">MENU</div>
+            <!-- MENU -->
+            <nav id="django-main-menu" class="menu-main-menu-container">
+                <ul class="django-menu-ul">
+                    <li><a href="/">Home &nbsp; <i class="fa fa-home"></i></a>
+                       
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'post_new' %}">Post Blog &nbsp; <i class="fa fa-pencil"></i></a>
+                        {%endif%}
+                    </li>
+
+                    <li><a href="{%url 'resume'%}"> Resume &nbsp; <i class="fa fa-sticky-note" aria-hidden="true"></i></a></li>
+                    <li><a href="{%url 'about_us' %}">About Me &nbsp; <i class="fa fa-user"></i></a>
+                       
+                    </li>
+                    
+                </ul>
+            </nav>
+        </div>
+        <!-- SOCIAL MEDIA ICONS -->
+        <div id="django-social-cell" class="mt-auto w-100">
+            <div id="django-social-inner">
+                <ul class="django-social-icons">
+                    <li><a href="https://github.com/demilade27"><i class="fa fa-github"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                   
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>

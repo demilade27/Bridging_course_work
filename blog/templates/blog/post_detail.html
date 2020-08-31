@@ -1,0 +1,29 @@
+{% extends 'blog/base.html' %} {% block content %}
+
+
+<div class="clearfix"></div>
+
+<div class="django-page-title">
+    <h1><span>{{ post.title }}</span></h1>
+    <div class="django-page-title-meta">
+        <div class="django-author-meta">
+            By <a class="author-meta" href="/">{{post.author}}</a>
+        </div>
+       
+        <div class="django-date-meta">{{ post.published_date }}</div>
+        {% if user.is_authenticated %}
+        <div class="django-cat-meta">
+           <a href="{% url 'post_edit' pk=post.pk %}"> Edit  &nbsp;<i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="django-featured-img">
+    <img src="/media/{{post.image}}" alt="" />
+</div>
+
+<div class="django-page-content">
+  <p>{{ post.text|linebreaksbr }}</p>
+   
+{% endblock %}
