@@ -19,101 +19,125 @@
    
 </div>
 
-{% if resume %}
+{% if personal_info %}       
     <article class="resume-wrapper text-center position-relative">
         <div class="resume-wrapper-inner mx-auto text-left bg-white shadow-lg">
             <header class="resume-header pt-4 pt-md-0">
-                <div class="media flex-column flex-md-row">
-                    <img class="mr-3 img-fluid  mx-auto" src="{{'/static/img/300x300.png'}}" alt="">
-                    <div class="media-body p-4 d-flex flex-column flex-md-row mx-auto mx-lg-0">
-                        <div class="primary-info">
-                            <h1 class="name mt-0 mb-1">Demilade</h1>
-                            <div class="title mb-3">Computer SCience</div>
-                            <ul class="list-unstyled">
-                                <li class="mb-2"><a href="#"><i class="fa fa-envelope" ></i> &nbsp; Steve.Doe@website.com</a></li>
-                                <li><a href="#"><i class="fa fa-phone" > &nbsp; </i>0123 456 78900</a></li>
-                            </ul>
+                 {%for details in personal_info %}
+                    <div class="media flex-column flex-md-row">
+                        <img class="mr-3 img-fluid  mx-auto" src="{{'/static/img/picture.jpg'}}" alt="">
+                        <div class="media-body p-4 d-flex flex-column flex-md-row mx-auto mx-lg-0">
+                            <div class="primary-info">
+                                <h1 class="name mt-0 mb-1">{{ details.full_name }} </h1>
+                                <div class="title mb-3">Computer Science</div>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><a href="#"><i class="fa fa-envelope" ></i> &nbsp; {{details.email}}</a></li>
+                                    <li><a href="#"><i class="fa fa-phone" > &nbsp; </i>{{details.phone_number}}</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </header>
-            <div class="resume-body p-5">
-                <section class="resume-section summary-section mb-5">
-                    <h2 class="resume-section-title font-weight-bold pb-3 mb-3">PERSONAL PROFILE</h2>
-                    <div class="resume-section-content">
-                        <p class="mb-0">Summarise your career here. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. You can download this free resume/CV template here. Aenean commodo ligula eget dolor aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget.</p>
-                    </div>
-                </section>
+                 {%endfor%}
+            </header>    
+            {%for details in personal_info %}
+                <div class="resume-body p-5">
+                    <section class="resume-section summary-section mb-5">
+                        <h2 class="resume-section-title font-weight-bold pb-3 mb-3">PERSONAL PROFILE</h2>
+                        <div class="resume-section-content">
+                            <p class="mb-0">{{details.personal_profile}} </p>
+                        </div>
+                    </section>
                 <div class="row">
+            {%endfor%}
+
+
                     <div class="col-lg-9">
                         <section class="resume-section education-section mb-5">
                             <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Education</h2>
-                            <div class="resume-section-content">
-                                <ul class="list-unstyled">
-                                    <li class="mb-2">
-                                        <div class="resume-degree font-weight-bold">MSc in Computer Science</div>
-                                        <div class="resume-degree-org">University College London</div>
-                                        <div class="resume-degree-time">2010 - 2011</div>
-                                    </li>
-                                </ul>
-                            </div>
+                            {%for schools in education %}
+
+                                <div class="resume-section-content">
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2">
+                                            <div class="resume-degree font-weight-bold">{{schools.course}}</div>
+                                            <div class="resume-degree-org">{{schools.name}}</div>
+                                            <div class="resume-degree-time">{{schools.start_year}} - {{schools.end_year}}</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            {%endfor%}
                         </section>
                     </div>
-
+            
                     <div class="col-lg-9">
                         <section class="resume-section experience-section mb-5">
                             <h2 class="resume-section-title font-weight-bold pb-3 mb-3 text-uppercase ">Employment And Work Experience</h2>
                             <div class="resume-section-content">
-                                <div class="resume-timeline position-relative">
-                                    <article class="resume-timeline-item position-relative"> 
-                                        <div class="resume-timeline-item-header mb-2">
-                                            <div class="d-flex flex-column flex-md-row">
-                                                <h3 class="resume-position-title font-weight-bold mb-1">Web Developer <small class="text-muted">(Intern)</small></h3>
-                                                <div class="resume-company-name ml-auto">Amazon</div>
+                                {%for jobs in work %}
+
+                                    <div class="resume-timeline position-relative">
+                                        <article class="resume-timeline-item position-relative"> 
+                                            <div class="resume-timeline-item-header mb-2">
+                                                <div class="d-flex flex-column flex-md-row">
+                                                    <h3 class="resume-position-title font-weight-bold mb-1">{{jobs.job}} <small class="text-muted">{{jobs.position}}</small></h3>
+                                                    <div class="resume-company-name ml-auto">{{jobs.company}} </div>
+                                                </div>
+                                                <div class="resume-position-time">{{jobs.start_year}}  - {{jobs.end_year}}</div>
                                             </div>
-                                            <div class="resume-position-time">2011 - 2012</div>
-                                        </div>
-                                        <div class="resume-timeline-item-desc">
-                                            <p>Role description goes here ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum.</p>
-                                        </div>
-                                    </article> 
-                                </div>
+                                            <div class="resume-timeline-item-desc">
+                                                <p>{{jobs.description}}</p>
+                                            </div>
+                                        </article> 
+                                    </div>
+                                {%endfor%}
                             </div>
                         </section>
                     </div>
                     <div class="col-lg-9">
                         <section class="resume-section experience-section mb-5">
-                            <h2 class="resume-section-title font-weight-bold pb-3 mb-3 text-uppercase">Achievements</h2>
+                            <h2 class="resume-section-title font-weight-bold pb-3 mb-3 text-uppercase">Intrests</h2>
                             <div class="resume-section-content">
+                            {%for Interests in interesti%}
                                 <div class="resume-timeline position-relative">
                                     <article class="resume-timeline-item position-relative"> 
-                                        <p>Praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
                                         <ul>
-                                            <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                                            <li>At vero eos et accusamus et iusto odio dignissimos.</li>
-                                            <li>Blanditiis praesentium voluptatum deleniti atque corrupti.</li>
-                                            <li>Maecenas tempus tellus eget.</li>
+                                            <li>{{Interests.intrest}}</li>
                                         </ul>
                                     </article> 
                                 </div>
+                            {%endfor%}
                             </div>
                         </section>
                     </div>
                     <div class="col-lg-9">
                         <section class="resume-section experience-section mb-5">
-                            <h2 class="resume-section-title font-weight-bold pb-3 mb-3 text-uppercase">Interests</h2>
-                            <div class="resume-section-content">
+                            <h2 class="resume-section-title font-weight-bold pb-3 mb-3 text-uppercase">Skills</h2>
+                             <div class="resume-section-content">
+                            {%for skilli in skills%}
                                 <div class="resume-timeline position-relative">
                                     <article class="resume-timeline-item position-relative"> 
-                                        <p>Praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
                                         <ul>
-                                            <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                                            <li>At vero eos et accusamus et iusto odio dignissimos.</li>
-                                            <li>Blanditiis praesentium voluptatum deleniti atque corrupti.</li>
-                                            <li>Maecenas tempus tellus eget.</li>
+                                            <li>{{skilli.skill}}</li>
                                         </ul>
                                     </article> 
                                 </div>
+                            {%endfor%}
+                            </div>
+                        </section>
+                    </div>
+                                        <div class="col-lg-9">
+                        <section class="resume-section experience-section mb-5">
+                            <h2 class="resume-section-title font-weight-bold pb-3 mb-3 text-uppercase">Languages</h2>
+                            <div class="resume-section-content">
+                            {%for langaugesi in langauges%}
+                                <div class="resume-timeline position-relative">
+                                    <article class="resume-timeline-item position-relative"> 
+                                        <ul>
+                                            <li>{{langaugesi.Language}}</li>
+                                        </ul>
+                                    </article> 
+                                </div>
+                            {%endfor%}
                             </div>
                         </section>
                     </div>
@@ -122,6 +146,7 @@
             </div>
         </div>
     </article>  
+
 {%else%}
     <div class="django-page-title">
         <h1><span>No Resume Available</span></h1>

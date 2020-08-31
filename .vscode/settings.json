@@ -1,4 +1,8 @@
 {
-    "python.pythonPath": "virtualenv/bin/python",
-    "python.formatting.provider": "black"
+    "python.pythonPath": "/Users/rivervalley/Documents/django_girls/virtualenv/bin/python3.6",
+    "python.formatting.provider": "black",
+    "python.linting.pylintEnabled": false,
+    "python.linting.mypyEnabled": true,
+    "python.linting.enabled": true,
+    "git.ignoreLimitWarning": true
 }

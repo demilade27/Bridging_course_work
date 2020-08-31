@@ -1,10 +1,10 @@
 from django.utils import timezone
 from django.db import models
 from django.conf import settings
+import datetime
+
 
 # Create your models here.
-
-
 class Resume(models.Model):
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -14,30 +14,39 @@ class Resume(models.Model):
     phone_number = models.CharField(max_length=15)
     personal_profile = models.TextField()
 
-
-class ProfessionalSkills(models.Model):
-    person = models.ForeignKey(Resume, on_delete=models.CASCADE)
-    skill_detail = models.TextField()
+class WorkExperience(models.Model):
+    resume = models.ForeignKey(Resume, on_delete=models.CASCADE,null=True)
+    job = models.CharField(max_length=50)
+    company = models.CharField(max_length=100)
+    position =models.CharField(max_length=100)
+    start_year = models.CharField(max_length=4)
+    end_year =models.CharField(max_length=4)
+    description =models.TextField()
 
 class Education(models.Model):
-    DEGREE_CHOICES = (
-        ('Phd', 'Male'),
-        ('Mtech/MA/MSc/MCom/MBA', 'Masters'),
-        ('BE/Btech/BA/BSc/BCom', 'Masters'),
-        ('12th', 'High School')
-    )
-    person = models.ForeignKey(Resume, on_delete=models.CASCADE)
-    degree = models.CharField(max_length=50, choices=DEGREE_CHOICES)
-    stream = models.CharField(max_length=100)
-    passing_year = models.DateField()
-    result = models.CharField(max_length=5)
+    resume = models.ForeignKey(Resume, on_delete=models.CASCADE,null=True)
+    level=models.CharField(max_length=50)   
+    degree = models.CharField(max_length=50)
+    course=models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
+    start_year = models.CharField(max_length=4)
+    end_year =models.CharField(max_length=4)
+    result = models.CharField(max_length=54)
+
+
+class ProfessionalSkills(models.Model):
+    resume = models.ForeignKey(Resume, on_delete=models.CASCADE,null=True)
+    skill = models.CharField(max_length=60)
+
+
 
 class Interest(models.Model):
-    person = models.ForeignKey(Resume, on_delete=models.CASCADE)
-    area_of_interest_detail = models.TextField()
+    resume = models.ForeignKey(Resume, on_delete=models.CASCADE,null=True)
+    intrest = models.TextField()
 
 class Langauges(models.Model):
-     person = models.ForeignKey(Resume, on_delete=models.CASCADE)
+     resume = models.ForeignKey(Resume, on_delete=models.CASCADE,null=True)
      Language=models.CharField(max_length=15)
+
     
 
