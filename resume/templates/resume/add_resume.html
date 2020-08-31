@@ -7,17 +7,22 @@
                 
     </div>
 </div>
-<form method="post" > {% csrf_token %} 
+<form method="POST" > {% csrf_token %} 
 <h3>Basic info</h3>
-{{ form.as_p }} 
+{{ personal_info_form.as_p }} 
 <h3>Skills</h3>
-{{ skillsForm.as_p }}
+{{ skills1.as_p }}
 <h3>Intrest</h3>
-{{intrestForm.as_p}}
+{{interest1.as_p}}
 <h3>language</h3>
-{{langaugesForm.as_p}}
+{{langauges1.as_p}}
 <h3>Educational info</h3>
-{{educationForm.as_p}}
+<h6>1</h6>
+{{education1.as_p}}
+<h3>Work Experience</h3>
+<h6>1</h6>
+{{work1.as_p}}
+
 
   <button type="submit" class="btn btn-default">Submit Resume &nbsp;<i class="fa fa-send"></i></button>
 </form>

@@ -1,0 +1,16 @@
+1598869176726	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/m8/jnjl7zjs5vg1wnhdzpwzrcyh0000gn/T/rust_mozprofilehHobbB"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1598869179287	Marionette	INFO	Listening on port 62156
+1598869179314	Marionette	WARN	TLS certificate errors will be ignored for this session
+1598869179543	Marionette	INFO	Stopped listening on port 62156
+console.error: Region.jsm: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 343))
+1598869507131	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/m8/jnjl7zjs5vg1wnhdzpwzrcyh0000gn/T/rust_mozprofileiRmSzN"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1598869509742	Marionette	INFO	Listening on port 62269
+1598869509793	Marionette	WARN	TLS certificate errors will be ignored for this session
+1598869509949	Marionette	INFO	Stopped listening on port 62269
+console.error: Region.jsm: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 343))
+console.warn: services.settings: main/message-groups sync interrupted by shutdown
+JavaScript error: , line 0: AbortError: A request was aborted, for example through a call to IDBTransaction.abort.
